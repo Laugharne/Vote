@@ -24,17 +24,8 @@ contract Voting is Ownable {
 		VotesTallied					// [le décompte est fait]			the voting session is ended, we compute...
 	}
 
-	/*
-	string[] private _workFlowStatusDesc = [
-		"RegisteringVoters",
-		"ProposalsRegistrationStarted",
-		"ProposalsRegistrationEnded",
-		"VotingSessionStarted",
-		"VotingSessionEnded",
-		"VotesTallied"
-	];
-	*/
-
+	// Workflow
+	// --------
 	WorkflowStatus private _workFlowStatus;
 
 	event WorkflowStatusChange(WorkflowStatus previousStatus, WorkflowStatus newStatus);
@@ -100,7 +91,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Get current Workflow Status ID.
 	 * @dev     Return private _workFlowStatus atttribute (ID)
-	 * @return  WorkflowStatus.
+	 * @return  WorkflowStatus
 	 */
 	function getCurrentStatusId() public view returns( WorkflowStatus) {
 		return _workFlowStatus;
@@ -113,7 +104,7 @@ contract Voting is Ownable {
 	 * @return  string memory
 	 */
 	 function getCurrentStatusDescription() public view returns( string memory) {
-		string[] memory workFlowStatusDesc = [
+		string[6] memory workFlowStatusDesc = [
 			"RegisteringVoters",
 			"ProposalsRegistrationStarted",
 			"ProposalsRegistrationEnded",
@@ -121,6 +112,7 @@ contract Voting is Ownable {
 			"VotingSessionEnded",
 			"VotesTallied"
 		];
+
 		return workFlowStatusDesc[ uint(_workFlowStatus)];
 	}
 
@@ -170,7 +162,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Allow to administrator to add a new voter.
 	 * @dev     Just add new default 'Voter' struct to a mapping, and emit VoterRegistered() event.
-	 * @param   _voterAddress  .
+	 * @param   _voterAddress
 	 */
 	function addVoter( address _voterAddress) public onlyOwner {
 		require( _workFlowStatus == WorkflowStatus.RegisteringVoters, "Workflow status is not RegisteringVoters");
@@ -251,7 +243,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Allow to see all voters.
 	 * @dev     Since the voter is allowed, return proposals data.
-	 * @return  VoterFullData[].
+	 * @return  VoterFullData[]
 	 */
 	function seeVoters() public view returns ( VoterFullData[] memory) {
 		require( _voters[msg.sender].isRegistered == true, "Voter is not allowed");
@@ -270,7 +262,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Allow to obtain proposal data (description & vote count).
 	 * @dev     Since the voter is allowed, return proposals data.
-	 * @return  Proposal[].
+	 * @return  Proposal[]
 	 */
 	function seeProposals() public view returns(Proposal[] memory) {
 		require( _voters[msg.sender].isRegistered == true, "Voter is not allowed");
@@ -282,7 +274,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Allow to obtain proposal winner (description).
 	 * @dev     Since the vote is tallied, just return _winningProposalDesc attribut.
-	 * @return  string.
+	 * @return  string
 	 */
 	function getWinner() public view returns( string memory) {
 		require( _workFlowStatus == WorkflowStatus.VotesTallied, "Workflow status is not VotesTallied");
