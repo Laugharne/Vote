@@ -24,6 +24,7 @@ contract Voting is Ownable {
 		VotesTallied					// [le décompte est fait]			the voting session is ended, we compute...
 	}
 
+	/*
 	string[] private _workFlowStatusDesc = [
 		"RegisteringVoters",
 		"ProposalsRegistrationStarted",
@@ -32,6 +33,7 @@ contract Voting is Ownable {
 		"VotingSessionEnded",
 		"VotesTallied"
 	];
+	*/
 
 	WorkflowStatus private _workFlowStatus;
 
@@ -111,7 +113,15 @@ contract Voting is Ownable {
 	 * @return  string memory
 	 */
 	 function getCurrentStatusDescription() public view returns( string memory) {
-		return _workFlowStatusDesc[ uint(_workFlowStatus)];
+		string[] memory workFlowStatusDesc = [
+			"RegisteringVoters",
+			"ProposalsRegistrationStarted",
+			"ProposalsRegistrationEnded",
+			"VotingSessionStarted",
+			"VotingSessionEnded",
+			"VotesTallied"
+		];
+		return workFlowStatusDesc[ uint(_workFlowStatus)];
 	}
 
 
