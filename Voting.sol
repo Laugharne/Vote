@@ -250,7 +250,7 @@ contract Voting is Ownable {
 
 		VoterFullData[] memory votersList = new VoterFullData[](_nnVoters);
 		address addr;
-		for( uint i = 0; i < _nnVoters; i++	) {
+		for( uint i = 0; i < _nnVoters; i++) {
 			addr          = _votersList[i];
 			votersList[i] = VoterFullData( _voters[addr], addr);
 		}
