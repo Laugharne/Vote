@@ -77,17 +77,17 @@ getCurrentStatusDescription()
 
 ### Les comptes
 
-| Compte                    | Addr...           |
-| ------------------------- | ----------------- |
-| **Administrateur**        | **0x5B3...**      |
-| Votant 1                  | 0xAb8...          |
-| Votant 2                  | 0x4B2...          |
-| Votant 3                  | 0x787...          |
-| Votant 4                  | 0x617...          |
-| Votant 5                  | 0x17F...          |
-| Votant 6                  | 0x5c6...          |
-| Votant 7                  | 0x03C...          |
-| *Votants non enregistrés* | *autres adresses* |
+| Compte                    | Addr...                                        |
+| ------------------------- | ---------------------------------------------- |
+| **Administrateur**        | **0x5B38Da6a701c568545dCfcB03FcB875f56beddC4** |
+| Votant 1                  | 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2     |
+| Votant 2                  | 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db     |
+| Votant 3                  | 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB     |
+| Votant 4                  | 0x617F2E2fD72FD9D5503197092aC168c91465E7f2     |
+| Votant 5                  | 0x17F6AD8Ef982297579C203069C1DbfFE4348c372     |
+| Votant 6                  | 0x5c6B0f7Bf3E7ce046039Bd8FABdfD3f9F5021678     |
+| Votant 7                  | 0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7     |
+| *Votants non enregistrés* | *autres adresses*                              |
 
 ### Exemple de scénario de test/d'usage
 

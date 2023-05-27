@@ -162,7 +162,7 @@ contract Voting is Ownable {
 	/**
 	 * @notice  Allow to administrator to add a new voter.
 	 * @dev     Just add new default 'Voter' struct to a mapping, and emit VoterRegistered() event.
-	 * @param   _voterAddress
+	 * @param   _voterAddress	voter address
 	 */
 	function addVoter( address _voterAddress) public onlyOwner {
 		require( _workFlowStatus == WorkflowStatus.RegisteringVoters, "Workflow status is not RegisteringVoters");
